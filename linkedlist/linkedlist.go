@@ -179,3 +179,14 @@ func (l *LinkedList[T]) Get(position int) (T, error) {
 func (l *LinkedList[T]) Size() int {
 	return l.size
 }
+
+func (l *LinkedList[T]) ConcatenarLinkedList(list *LinkedList[T]) (any, error) {
+	if l.head == nil || list.head == nil {
+		var t T
+		return t, errors.New("No se pueden concatenar dos listas si una de ellas esta vacia")
+	}
+	l.tail.next = list.head
+	l.tail = list.head
+
+	return l, nil
+}

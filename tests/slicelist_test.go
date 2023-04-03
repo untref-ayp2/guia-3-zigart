@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-func TestInsert(t *testing.T) {
+func TestInsertSlice(t *testing.T) {
 	list := slicelist.NewSliceList[int]()
 	list.Append(1)
 	list.Append(2)
@@ -28,7 +28,7 @@ func TestInsert(t *testing.T) {
 	}
 }
 
-func TestDelete(t *testing.T) {
+func TestDeleteSlice(t *testing.T) {
 	list := slicelist.NewSliceList[int]()
 	list.Append(0)
 	list.Append(1)
@@ -54,5 +54,19 @@ func TestDelete(t *testing.T) {
 	fmt.Println(v)
 	if err != nil || v != 4 {
 		t.Error("Error en Remove")
+	}
+}
+func TestStringSlice(t *testing.T) {
+	list := slicelist.NewSliceList[int]()
+	list.Append(0)
+	list.Append(1)
+	list.Append(2)
+	list.Append(3)
+	list.Append(4)
+	list.Append(5)
+
+	if list.String() != "[0,1,2,3,4,5]" {
+		fmt.Print(list.String())
+		t.Error("Error en string")
 	}
 }

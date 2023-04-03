@@ -42,4 +42,32 @@ func main() {
 
 	fmt.Println(l)
 
+	l2 := linkedlist.NewLinkedList[int]()
+	l2.Append(100)
+	l2.Append(200)
+	l2.Append(300)
+
+	result, _ := l.ConcatenarLinkedList(l2)
+	fmt.Print(result)
+
+}
+
+func ConcatenarLinkedList[T comparable](l1 *linkedlist.LinkedList[T], l2 *linkedlist.LinkedList[T]) *linkedlist.LinkedList[T] {
+
+	aux := linkedlist.NewLinkedList[T]()
+
+	for i := 0; i < l1.Size(); i++ {
+
+		dato, _ := l1.Get(i)
+
+		aux.Append(dato)
+	}
+
+	for i := 0; i < l2.Size(); i++ {
+		dato, _ := l2.Get(i)
+
+		aux.Append(dato)
+	}
+
+	return aux
 }
