@@ -42,4 +42,53 @@ func main() {
 
 	fmt.Println(l)
 
+	l2 := linkedlist.NewLinkedList[int]()
+	l2.Append(100)
+	l2.Append(200)
+	l2.Append(300)
+
+	result, _ := l.ConcatenarLinkedList(l2)
+	fmt.Print(result)
+
+	// queue := linkedlist.NewQueue[int]()
+	// queue.Enqueue(1)
+	// queue.Enqueue(2)
+	// queue.Dequeue()
+	// queue.Enqueue(3)
+	// queue.Dequeue()
+	// queue.Dequeue()
+	// queue.Dequeue()
+	// fmt.Print(queue.Front())
+	// fmt.Print(queue.IsEmpty())
+
+	stack := linkedlist.NewStack[int]()
+	stack.Push(1)
+	stack.Push(2)
+	stack.Pop()
+	stack.Push(3)
+	stack.Pop()
+	stack.Pop()
+	fmt.Print(stack.Front())
+	fmt.Print(stack.IsEmpty())
+
+}
+
+func ConcatenarLinkedList[T comparable](l1 *linkedlist.LinkedList[T], l2 *linkedlist.LinkedList[T]) *linkedlist.LinkedList[T] {
+
+	aux := linkedlist.NewLinkedList[T]()
+
+	for i := 0; i < l1.Size(); i++ {
+
+		dato, _ := l1.Get(i)
+
+		aux.Append(dato)
+	}
+
+	for i := 0; i < l2.Size(); i++ {
+		dato, _ := l2.Get(i)
+
+		aux.Append(dato)
+	}
+
+	return aux
 }
