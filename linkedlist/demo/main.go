@@ -50,6 +50,27 @@ func main() {
 	result, _ := l.ConcatenarLinkedList(l2)
 	fmt.Print(result)
 
+	// queue := linkedlist.NewQueue[int]()
+	// queue.Enqueue(1)
+	// queue.Enqueue(2)
+	// queue.Dequeue()
+	// queue.Enqueue(3)
+	// queue.Dequeue()
+	// queue.Dequeue()
+	// queue.Dequeue()
+	// fmt.Print(queue.Front())
+	// fmt.Print(queue.IsEmpty())
+
+	stack := linkedlist.NewStack[int]()
+	stack.Push(1)
+	stack.Push(2)
+	stack.Pop()
+	stack.Push(3)
+	stack.Pop()
+	stack.Pop()
+	fmt.Print(stack.Front())
+	fmt.Print(stack.IsEmpty())
+
 }
 
 func ConcatenarLinkedList[T comparable](l1 *linkedlist.LinkedList[T], l2 *linkedlist.LinkedList[T]) *linkedlist.LinkedList[T] {
